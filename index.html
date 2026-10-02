@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WonderToys | Where Imagination Comes to Play! 🚀🧸</title>
+  <meta name="description" content="Discover award-winning toys, STEM learning kits, plushies, and creative games for children of all ages. Certified non-toxic and built to inspire. Full API and multi-gateway checkout." />
+
+  <!-- Google Fonts: Fredoka & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <header class="top-bar">
+    <div class="top-bar-content">
+      <span class="top-bar-badge">Global Store</span>
+      <span>🎉 FREE Shipping over $50 | Use code <strong>MAGIC20</strong> for 20% off | All 8 Payment Gateways Active!</span>
+    </div>
+    <div class="top-bar-tools">
+      <button class="top-tool-btn" onclick="window.wonderApp.openDeployModal()" title="Deploy Live">
+        🚀 Deploy Store
+      </button>
+      <button class="top-tool-btn" onclick="window.wonderApp.openApiExplorer()" title="REST API Explorer">
+        🛠️ Developer API
+      </button>
+      <button class="sound-toggle-btn" id="soundToggleBtn" title="Toggle Sound FX">
+        🔊 Sound: ON
+      </button>
+    </div>
+  </header>
+
+  <!-- Sticky Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="brand-logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+        <div class="brand-icon-box">🧸</div>
+        <div>
+          <div class="brand-title">Wonder<span>Toys</span></div>
+          <div class="brand-tagline">Play • Learn • Smile</div>
+        </div>
+      </a>
+
+      <!-- Live Search Bar -->
+      <div class="nav-search-box">
+        <div class="search-input-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search toys, robots, plushies, ages..." autocomplete="off" />
+          <button id="searchClear" class="search-clear-btn" title="Clear">✕</button>
+        </div>
+        <div id="searchDropdown" class="search-results-dropdown"></div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <!-- Gift Match Wizard CTA -->
+        <button class="nav-btn wizard-btn-nav" onclick="window.wonderApp.openGiftWizard()">
+          <span>🪄</span>
+          <span style="font-weight: 700;">Gift Wizard</span>
+        </button>
+
+        <!-- Deploy Button -->
+        <button class="nav-btn deploy-btn-nav" onclick="window.wonderApp.openDeployModal()">
+          <span>🚀</span>
+          <span>Deploy</span>
+        </button>
+
+        <!-- API Button -->
+        <button class="nav-btn api-btn-nav" onclick="window.wonderApp.openApiExplorer()">
+          <span>⚡</span>
+          <span>API</span>
+        </button>
+
+        <!-- Wishlist Button -->
+        <button class="nav-btn-icon-only" id="wishlistNavBtn" title="Your Wishlist">
+          <span>💖</span>
+          <span class="badge-count" id="wishlistBadgeCount">0</span>
+        </button>
+
+        <!-- Shopping Cart Button -->
+        <button class="nav-btn cart-btn-nav" id="cartNavBtn">
+          <span>🛒</span>
+          <span>Bag</span>
+          <span class="badge-count" id="cartBadgeCount" style="position: static; margin-left: 2px;">0</span>
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-shapes">
+      <span class="floating-icon f-icon-1">🚀</span>
+      <span class="floating-icon f-icon-2">🎨</span>
+      <span class="floating-icon f-icon-3">🧩</span>
+      <span class="floating-icon f-icon-4">🤖</span>
+    </div>
+
+    <div class="hero-container">
+      <div class="hero-text-content">
+        <div class="hero-badge-pill">
+          <span class="emoji">⭐</span>
+          <span>Voted #1 Best Family Toy Store 2026</span>
+        </div>
+        <h1 class="hero-title">
+          Where Every Toy Sparks an <span class="gradient-text">Adventure!</span>
+        </h1>
+        <p class="hero-subtitle">
+          Hand-picked STEM kits, heirloom wooden classics, huggable plushies, and creative toys crafted to inspire happy childhood memories. Certified 100% child-safe.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#shopSection" class="btn-primary">
+            <span>Explore All Toys</span>
+            <span>↓</span>
+          </a>
+          <button class="btn-secondary" onclick="window.wonderApp.openGiftWizard()">
+            <span>🪄 Find the Perfect Gift Quiz</span>
+          </button>
+        </div>
+
+        <div class="hero-trust-badges">
+          <div class="trust-item"><span class="check">✓</span> 100% Non-Toxic & Safe</div>
+          <div class="trust-item"><span class="check">✓</span> All 8 Payment Methods Supported</div>
+          <div class="trust-item"><span class="check">✓</span> 2-3 Day Fast Delivery</div>
+        </div>
+      </div>
+
+      <!-- Hero Visual -->
+      <div class="hero-visual-card">
+        <div class="hero-img-box">
+          <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=1000&q=80" alt="Children playing with joyful toys" />
+        </div>
+        <div class="floating-deal-badge">
+          <div class="deal-badge-icon">⚡</div>
+          <div>
+            <div class="deal-badge-title">Flash Sale</div>
+            <div class="deal-badge-text">Up to 30% Off Selected Sets</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Ticker Bar -->
+  <div class="hero-bottom-ticker">
+    <div class="ticker-grid">
+      <div class="ticker-card">
+        <div class="ticker-icon">💳</div>
+        <div class="ticker-info">
+          <h4>All 8 Payment Gateways</h4>
+          <p>Cards, UPI, Apple/GPay, BNPL, Crypto, COD</p>
+        </div>
+      </div>
+      <div class="ticker-card">
+        <div class="ticker-icon">⚡</div>
+        <div class="ticker-info">
+          <h4>REST API & Webhooks</h4>
+          <p>Full /api/v1 developer integration</p>
+        </div>
+      </div>
+      <div class="ticker-card">
+        <div class="ticker-icon">🚀</div>
+        <div class="ticker-info">
+          <h4>1-Click Deployment</h4>
+          <p>Vercel, Netlify & GitHub Pages ready</p>
+        </div>
+      </div>
+      <div class="ticker-card">
+        <div class="ticker-icon">🛡️</div>
+        <div class="ticker-info">
+          <h4>Certified Child-Safe</h4>
+          <p>ASTM F963 & EN71 compliant</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category Filter Bar -->
+  <section class="category-filter-section" id="shopSection">
+    <div class="section-header-row">
+      <div>
+        <h2 class="section-title">Explore by Category</h2>
+        <p class="section-subtitle">Click to quickly filter through our top play collections</p>
+      </div>
+    </div>
+
+    <div class="category-scroll-container">
+      <button class="category-pill active" data-category="all">
+        <span>✨</span> All Toys
+      </button>
+      <button class="category-pill" data-category="stem">
+        <span>🤖</span> STEM & Robotics
+      </button>
+      <button class="category-pill" data-category="building">
+        <span>🧱</span> Building & Blocks
+      </button>
+      <button class="category-pill" data-category="plush">
+        <span>🧸</span> Stuffed & Plush
+      </button>
+      <button class="category-pill" data-category="rc">
+        <span>🏎️</span> RC & Vehicles
+      </button>
+      <button class="category-pill" data-category="dolls">
+        <span>🏰</span> Dolls & Playsets
+      </button>
+      <button class="category-pill" data-category="wooden">
+        <span>🚂</span> Wooden Classics
+      </button>
+      <button class="category-pill" data-category="arts">
+        <span>🎨</span> Arts & Crafts
+      </button>
+      <button class="category-pill" data-category="games">
+        <span>🎲</span> Board Games
+      </button>
+      <button class="category-pill" data-category="baby">
+        <span>👶</span> Baby & Toddler
+      </button>
+      <button class="category-pill" data-category="tech">
+        <span>📸</span> Tech & Cameras
+      </button>
+      <button class="category-pill" data-category="outdoor">
+        <span>⛺</span> Outdoor & Active
+      </button>
+    </div>
+  </section>
+
+  <!-- Main Shop Layout -->
+  <main class="main-shop-container">
+    
+    <!-- Sidebar Filters -->
+    <aside class="filters-sidebar">
+      <div class="filter-header">
+        <h3><span>⚙️</span> Filters</h3>
+        <span class="reset-filters-btn" id="resetFiltersBtn">Reset All</span>
+      </div>
+
+      <!-- Price Range Filter -->
+      <div class="filter-group">
+        <div class="filter-title">
+          <span>Max Price</span>
+          <span id="priceDisplay" style="color: var(--primary); font-weight: 800;">$120</span>
+        </div>
+        <div class="price-slider-wrap">
+          <input type="range" id="priceRange" min="15" max="120" step="5" value="120" />
+          <div class="price-values-display">
+            <span>$15</span>
+            <span>$120</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Age Filter -->
+      <div class="filter-group">
+        <div class="filter-title">Age Group</div>
+        <div class="filter-options">
+          <label class="filter-checkbox-label">
+            <input type="radio" name="ageFilter" value="all" checked />
+            <span>All Ages</span>
+          </label>
+          <label class="filter-checkbox-label">
+            <input type="radio" name="ageFilter" value="0-2" />
+            <span>0 - 2 Years (Baby & Toddler)</span>
+          </label>
+          <label class="filter-checkbox-label">
+            <input type="radio" name="ageFilter" value="3-5" />
+            <span>3 - 5 Years (Preschool)</span>
+          </label>
+          <label class="filter-checkbox-label">
+            <input type="radio" name="ageFilter" value="6-8" />
+            <span>6 - 8 Years (Early Grade)</span>
+          </label>
+          <label class="filter-checkbox-label">
+            <input type="radio" name="ageFilter" value="9+" />
+            <span>9+ Years (Big Kids)</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Availability & Deals Filter -->
+      <div class="filter-group">
+        <div class="filter-title">Special Offers</div>
+        <div class="filter-options">
+          <label class="filter-checkbox-label">
+            <input type="checkbox" id="stockOnlyCheck" />
+            <span>In Stock Only</span>
+          </label>
+          <label class="filter-checkbox-label">
+            <input type="checkbox" id="saleOnlyCheck" />
+            <span>On Sale / Discounted</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Gift Finder Banner Widget -->
+      <div class="gift-finder-card-banner">
+        <h4>Need help picking?</h4>
+        <p>Answer 3 quick questions and our Toy Wizard will find the perfect present.</p>
+        <button class="btn-open-wizard-small" onclick="window.wonderApp.openGiftWizard()">
+          Start Gift Quiz 🪄
+        </button>
+      </div>
+
+      <!-- Quick Developer & Deploy Box in Sidebar -->
+      <div style="margin-top: 16px; padding: 12px; background: #f1f5f9; border-radius: var(--radius-md); font-size: 0.8rem; text-align: center;">
+        <span style="font-weight: 700;">Developer & Hosting:</span>
+        <div style="display: flex; gap: 8px; margin-top: 8px; justify-content: center;">
+          <button class="top-tool-btn" style="background: var(--primary); color: #fff; font-size: 0.72rem;" onclick="window.wonderApp.openApiExplorer()">REST API</button>
+          <button class="top-tool-btn" style="background: #0284c7; color: #fff; font-size: 0.72rem;" onclick="window.wonderApp.openDeployModal()">Deploy ↗</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Products Column -->
+    <section class="products-section">
+      <!-- Products Controls Header -->
+      <div class="products-top-bar">
+        <div class="products-count-text">
+          Showing <strong id="productsCount">12</strong> wonderful toys
+        </div>
+
+        <div class="products-sort-controls">
+          <span class="sort-label">Sort by:</span>
+          <select id="sortSelect" class="sort-select">
+            <option value="featured">Featured & Best Matches</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Highest Rated ★</option>
+            <option value="reviews">Most Popular Reviews</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div id="productsGrid" class="products-grid">
+        <!-- Injected via app.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Slide-Over Shopping Cart Drawer -->
+  <div class="drawer-backdrop" id="cartDrawerBackdrop"></div>
+  <aside class="drawer-panel" id="cartDrawer">
+    <div class="drawer-header">
+      <h3><span>🛒</span> Your Shopping Bag</h3>
+      <button class="drawer-close-btn" id="cartCloseBtn">✕</button>
+    </div>
+
+    <!-- Free Shipping Progress -->
+    <div class="free-shipping-bar-box">
+      <div class="free-shipping-text" id="freeShippingText">
+        <span>Free standard shipping on orders over $50</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="freeShippingFill" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <!-- Cart Items Scroll List -->
+    <div class="drawer-items-list" id="cartItemsList">
+      <!-- Injected via app.js -->
+    </div>
+
+    <!-- Cart Footer & Checkout -->
+    <div class="drawer-footer">
+      <!-- Promo Code Box -->
+      <div class="coupon-row">
+        <input type="text" id="couponInput" class="coupon-input" placeholder="Promo code (e.g. MAGIC20)" />
+        <button id="applyCouponBtn" class="coupon-apply-btn">Apply</button>
+      </div>
+      <div id="couponMsg" style="font-size: 0.78rem; font-weight: 700; display: none;"></div>
+
+      <!-- Price Breakdown -->
+      <div class="order-summary-breakdown">
+        <div class="summary-row">
+          <span>Subtotal:</span>
+          <span id="cartSubtotal" style="font-weight: 700;">$0.00</span>
+        </div>
+        <div class="summary-row" id="cartDiscountRow" style="display: none; color: var(--accent-emerald);">
+          <span>Promo Discount:</span>
+          <span id="cartDiscountAmount" style="font-weight: 700;">-$0.00</span>
+        </div>
+        <div class="summary-row">
+          <span>Estimated Shipping:</span>
+          <span id="cartShipping" style="font-weight: 700;">$0.00</span>
+        </div>
+        <div class="summary-row">
+          <span>Estimated Tax (5%):</span>
+          <span id="cartTax" style="font-weight: 700;">$0.00</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total:</span>
+          <span id="cartTotal">$0.00</span>
+        </div>
+      </div>
+
+      <button class="btn-checkout" id="checkoutBtnDrawer">
+        <span>Choose from 8 Payment Ways</span>
+        <span>→</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Slide-Over Wishlist Drawer -->
+  <aside class="drawer-panel" id="wishlistDrawer">
+    <div class="drawer-header">
+      <h3><span>💖</span> Saved Wishlist</h3>
+      <button class="drawer-close-btn" id="wishlistCloseBtn">✕</button>
+    </div>
+    <div class="drawer-items-list" id="wishlistItemsList">
+      <!-- Injected via app.js -->
+    </div>
+  </aside>
+
+  <!-- Quick View Modal -->
+  <div class="modal-overlay" id="quickviewModal">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="window.wonderApp.closeQuickView()">✕</button>
+      <div id="quickviewContent">
+        <!-- Injected via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Multi-step Checkout Modal with 8 Payment Gateways -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal-card checkout-modal-card">
+      <!-- Injected dynamically by app.js -->
+    </div>
+  </div>
+
+  <!-- Gift Match Wizard Modal -->
+  <div class="modal-overlay" id="giftWizardModal">
+    <div class="modal-card" style="max-width: 580px;">
+      <!-- Injected via app.js -->
+    </div>
+  </div>
+
+  <!-- Developer REST API Explorer Modal -->
+  <div class="modal-overlay" id="apiModal">
+    <div class="modal-card" style="max-width: 780px;">
+      <!-- Injected via app.js -->
+    </div>
+  </div>
+
+  <!-- Deploy Store Modal -->
+  <div class="modal-overlay" id="deployModal">
+    <div class="modal-card" style="max-width: 720px;">
+      <!-- Injected via app.js -->
+    </div>
+  </div>
+
+  <!-- Floating Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h2>Wonder<span>Toys</span> 🧸</h2>
+        <p>
+          Inspiring young minds and sparking boundless imagination with safe, durable, and joy-filled toys for every stage of childhood.
+        </p>
+        <div style="font-size: 0.85rem; color: #94a3b8; margin-top: 8px;">
+          📍 Handcrafted with love & safety certifications.
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h4>All Ways of Money Transaction</h4>
+        <ul class="footer-links">
+          <li><span>💳 Credit / Debit (Visa, MC, Amex)</span></li>
+          <li><span>📱 UPI & Instant QR (GPay, PhonePe)</span></li>
+          <li><span>🅿️ Apple Pay, Google Pay & PayPal</span></li>
+          <li><span>🛍️ Pay in 4 (Klarna / Afterpay)</span></li>
+          <li><span>🏦 Net Banking & Instant Wire</span></li>
+          <li><span>⚡ Web3 Crypto (BTC / ETH / USDT)</span></li>
+          <li><span>🎁 Gift Card & Store Credit</span></li>
+          <li><span>💵 Cash on Delivery (COD)</span></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Developer & Cloud Deploy</h4>
+        <ul class="footer-links">
+          <li><a href="#" onclick="window.wonderApp.openDeployModal(); return false;">🚀 Deploy to Vercel</a></li>
+          <li><a href="#" onclick="window.wonderApp.openDeployModal(); return false;">🌐 Deploy to Netlify</a></li>
+          <li><a href="#" onclick="window.wonderApp.openDeployModal(); return false;">🐙 Deploy via GitHub Pages</a></li>
+          <li><a href="#" onclick="window.wonderApp.openApiExplorer(); return false;">⚡ Interactive REST API Explorer</a></li>
+          <li><a href="#" onclick="alert('All WonderToys products are ASTM F963 and EN71 certified non-toxic.'); return false;">Child-Safety Promise</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Join the Toy Club 🎉</h4>
+        <p style="font-size: 0.84rem; margin-bottom: 12px;">Get secret discount codes, new toy alerts, and parenting play guides!</p>
+        <form onsubmit="event.preventDefault(); alert('🎉 Welcome to the Toy Club! Use coupon code MAGIC20 for 20% off your order.');" style="display: flex; gap: 8px;">
+          <input type="email" placeholder="Your email address" required style="padding: 10px 14px; border-radius: var(--radius-full); border: 1px solid #334155; background: #1e293b; color: #fff; font-size: 0.84rem; flex: 1; outline: none;" />
+          <button type="submit" class="btn-primary" style="padding: 10px 18px; font-size: 0.84rem;">Join</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom-row">
+      <div>© 2026 WonderToys Inc. All rights reserved. Designed for young dreamers everywhere.</div>
+      <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+        <span>🔒 256-Bit SSL Encrypted</span>
+        <span>💳 Visa • Mastercard • UPI • PayPal • Klarna • Crypto • COD</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="products.js"></script>
+  <script src="api.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
